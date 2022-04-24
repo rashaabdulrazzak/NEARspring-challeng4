@@ -1,22 +1,11 @@
-import React from 'react';
-
-export default function SignIn() {
+import React from "react";
+import cover from "../img/cover.png";
+export default function SignIn({ signIn }) {
   return (
     <>
-      <p>
-          This app demonstrates a key element of NEAR’s UX: once an app has
-          permission to make calls on behalf of a user (that is, once a user
-          signs in), the app can make calls to the blockchain for them without
-          prompting extra confirmation. So you’ll see that if you don’t
-          include a donation, your message gets posted right to the guest book.
-      </p>
-      <p>
-          But if you do add a donation, then NEAR will double-check that
-          you’re ok with sending money to this app.
-      </p>
-      <p>
-          Go ahead and sign in to try it out!
-      </p>
+      <img src={cover} alt="cover" style={{ height: "300px" }} />
+      <p>Go ahead and sign in to try it out!</p>
+      <button onClick={signIn}> Sign In </button>
     </>
   );
 }

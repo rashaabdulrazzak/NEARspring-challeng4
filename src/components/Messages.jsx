@@ -1,21 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import PropTypes from "prop-types";
+import Message from "./Message";
+import { Row } from "react-bootstrap";
 export default function Messages({ messages }) {
   return (
     <>
-      <h2>Messages</h2>
-      {messages.map((message, i) =>
-        // TODO: format as cards, add timestamp
-        <p key={i} className={message.premium ? 'is-premium' : ''}>
-          <strong>{message.sender}</strong>:<br/>
-          {message.text}
-        </p>
-      )}
+      <Row className="d-flex justify-content-between my-5 py-3">
+        <h2>Latest Messages</h2>
+      </Row>
+      <Row s={1} sm={1} lg={3} className="g-3 mb-5 g-xl-4 g-xxl-5">
+        {messages.map((message, i) => (
+          <Message key={i} {...message} />
+        ))}
+      </Row>
     </>
   );
 }
 
 Messages.propTypes = {
-  messages: PropTypes.array
+  messages: PropTypes.array,
 };
